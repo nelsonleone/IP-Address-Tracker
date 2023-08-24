@@ -1,0 +1,309 @@
+/* Global */
+:root{
+    --VERY_DARK_GRAY: hsl(0, 0%, 17%);
+    --DARK_GRAY: hsl(0, 0%, 59%);
+    --TEXT_INPUT_FS: 1.05rem;
+    --FONT_FAMILY_RUBIK: 'Rubik', sans-serif;
+}
+
+
+/* Default Overrides */
+
+*,
+*::before,
+*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body{
+    height: 100%;
+    font-family: var(--FONT_FAMILY_RUBIK);
+}
+
+body *{
+    font-family: var(--FONT_FAMILY_RUBIK) !important;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus{
+    outline: none;
+    border: none;
+}
+
+input{
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+li,
+a{
+    list-style-type: none;
+    text-decoration: none;;
+}
+
+img{
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.AT_only{
+    position: absolute;
+    left: -10000px;
+    top: -100000px;
+    width: 1px;
+    font-size: 1px;
+}
+
+
+
+/* Header Section */
+header{
+    background: url('/images/pattern-bg-mobile.png');
+    background-position: center;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    padding: 1em;
+    height: 49vh;
+    position: relative;
+}
+
+h1{
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+    margin-block: .7em;
+}
+
+header > div:first-of-type{
+    position: absolute;
+    width: 90%;
+    margin-inline: auto;
+    left: 0;
+    background: red;
+    right: 0;
+    height: 3.3em;
+    border-radius: 15px;
+    z-index: 10;        
+    background: hsl(0, 0%, 100%);
+}
+
+header  > div:first-of-type  input{
+    border-radius: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    padding: 1em;
+    font-size: var(--TEXT_INPUT_FS);
+    color: var(--VERY_DARK_GRAY);
+    padding-right: 3.1em;
+}
+
+header  > div:first-of-type  input::placeholder{
+    font-size: 1rem;
+}
+
+
+
+header  > div:first-of-type button{
+    position: absolute;
+    right: 0;
+    background-color: var(--VERY_DARK_GRAY);
+    width: 2.5em;
+    height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: hsl(0, 0%, 100%);
+    font-size: 1.3rem;
+    transition: .3s ease-in-out;
+}
+
+header  > div:first-of-type button:hover{
+    opacity: .8;
+}
+
+header  > div:first-of-type button:disabled{
+    cursor: not-allowed !important;
+}
+
+header  > div:first-of-type button:disabled:hover{
+    opacity: 1;
+}
+
+.floating_result{
+    position: absolute;
+    min-height: 17em;
+    height: 11em;
+    bottom: calc(-50%);
+    background: hsl(0, 0%, 100%);
+    border-radius: 12px;
+    padding: 1.4em;
+    width: 90%;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2px 2px rgba(49, 48, 48, 0.181);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10000;
+    align-items: center;
+}
+
+.floating_result div{
+    margin-block: .55em;
+}
+
+.floating_result div * {
+    text-align: center;
+}
+
+.floating_result p{
+    color: var(--DARK_GRAY);
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 0.04rem;
+    margin-block: .4em;
+}
+
+.floating_result strong{
+    color: var(--VERY_DARK_GRAY);
+    text-transform: capitalize;
+    font-weight: 500;
+    word-spacing: 1px;
+    font-size: clamp(1.125rem, 0.462vw + 1.005rem, 1.375rem);
+}
+
+
+
+
+/* Alert styling */
+@keyframes slideIn {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
+@keyframes slideOut {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+    to{
+        top: -200px;
+        opacity: 0;
+    }
+}
+
+.alert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    z-index: 1000000;
+    animation-name: slideIn;
+    animation-duration: .3s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.alert p{
+    width: 20em;
+    color: hsl(0, 0%, 100%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    padding: 1em;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.hide_alert{
+    animation-name: slideOut;
+}
+
+
+
+
+
+
+/* Media Query */
+
+@media (min-width:1000px) {
+    header{
+        background: url('/images/pattern-bg-desktop.png');
+        height: 40.5vh;
+    }
+
+    h1{
+        font-size: 1.8rem;
+    }
+
+    header > div:first-of-type{
+        width: 30.5em;
+    }
+
+    header > div:first-of-type input::placeholder{
+        font-size: var(--TEXT_INPUT_FS);
+    }
+
+    .floating_result{
+        flex-direction: row;
+        padding-inline: 2em;
+        display: grid;
+        height: 11em;
+        min-height: unset;
+        bottom: -5.5em;
+        width: 75%;
+        grid-template-columns: repeat(4,25%);
+        align-content: flex-start;
+    }
+
+    .floating_result div  *{
+        text-align: left;
+    }
+
+    .floating_result div{
+        padding-top: 2em;
+    }
+
+    .floating_result strong{
+        display: block;
+    }
+
+    .floating_result p {
+        position: absolute;
+        top: 2em;
+        font-size: .8rem;
+    }
+
+    .floating_result > div:last-of-type{
+        padding-right: 1em;
+        word-wrap: break-word;
+    }
+}
