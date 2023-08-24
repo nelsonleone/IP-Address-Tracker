@@ -54,7 +54,7 @@ export default function Header({handleSetLocation}: { handleSetLocation:(locatio
     return(
         <header>
             <h1>IP Address Tracker</h1>
-            <div>
+            <form>
                 <label htmlFor="address-input" className="AT_only">Search For Any IP Address Or Domain</label>
                 <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} id="address-input" placeholder="Search for any IP address or domain" />
                 <button disabled={loading} aria-label="Search" onClick={submitTrackingDetails}>
@@ -65,7 +65,7 @@ export default function Header({handleSetLocation}: { handleSetLocation:(locatio
                     <img width={40} src="/images/loading.svg" aria-label="loading" />
                   }
                 </button>
-            </div>
+            </form>
 
             <div className="floating_result">
                 <div>
